@@ -1,0 +1,46 @@
+name: Run Python Script Every 10 Minutes
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install requests google-genai
+          fi
+
+      - name: Run Python script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FACEBOOK_API_KEY: ${{ secrets.FACEBOOK_API_KEY }}
+        run: |
+          echo "================================"
+          echo "Starting auto-post script..."
+          echo "Time: $(date -u)"
+          echo "================================"
+
+          python main.py
+
+          echo "================================"
+          echo "Script finished successfully."
+          echo "================================"
