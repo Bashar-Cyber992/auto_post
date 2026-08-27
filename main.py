@@ -7,8 +7,10 @@ from google.genai import types
 # ================= ================= =================
 # 1. إعداد المفاتيح والبيانات (Configuration)
 # ================= ================= =================
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY",  "AQ.Ab8RN6LGpwI5HI6-3XyKWmhJtAz7zq_R5_eRxIaBNcL8Vb7G5A")
-PAGE_ACCESS_TOKEN = "EAAZB0kcdVi4oBSbb8B574DsT6cONjc0ZBtxOt9xnxg1cukG4GMh77oZCJtxqM8TQrmQnJ5O9MOANZBCuZBBcNCjQALhNyj5qNZAFJjHxXZA7GZBnNwiggJluclM3MZCuPvghhl3XjExbfIrpFb6uuMrU2z3CMledZAb6yRjUfLPZBfPHCpipDUbk3mCoW9n8DfBNUwBUaWo5fdLJcZAPLZBrtpgTLLxVm"  # ضع Token الصفحة الخاص بك هنا
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+PAGE_ACCESS_TOKEN = os.environ.get("FACEBOOK_API_KEY")
+
+
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
