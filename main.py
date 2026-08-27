@@ -125,7 +125,7 @@ def post_photo_to_facebook(image_path: str, caption_text: str) -> bool:
 # ================= ================= =================
 if __name__ == "__main__":
     # الموضوع المطلوب
-    post_topic = "أهمية ثنائية التحقق (2FA) لحماية الحسابات من الاختراق"
+    post_topic = "موضوع عشوائي يختص بالأمن السيبراني وبما يعكس محتوى الصحفة "جرعة سيبرانية"
     
     # الخطوة 1: توليد النص والوصف عبر Gemini
     content_data = generate_cyberdose_content(post_topic)
