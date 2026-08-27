@@ -2,7 +2,10 @@ name: Run Python Script Periodically
 
 on:
   schedule:
+    # يعمل الكود تلقائياً كل 6 ساعات (يمكنك تغيير التوقيت حسب رغبتك)
     - cron: '0 */6 * * *'
+  
+  # يتيح لك تشغيل السكربت يدوياً في أي وقت للاختبار
   workflow_dispatch:
 
 jobs:
@@ -21,7 +24,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests google-genai
 
       - name: Execute Python script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python main.py
