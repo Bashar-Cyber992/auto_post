@@ -2,8 +2,8 @@ name: Run Python Script Periodically
 
 on:
   schedule:
-    # يعمل الكود كل 5 دقائق (الحد الأدنى المسموح به في GitHub Actions)
-    - cron: '*/5 * * * *'
+    # يعمل الكود كل 10 دقائق تلقائياً
+    - cron: '*/10 * * * *'
   
   # يتيح لك تشغيل السكربت يدوياً في أي وقت للاختبار
   workflow_dispatch:
